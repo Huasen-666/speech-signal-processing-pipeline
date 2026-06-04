@@ -41,10 +41,17 @@ Raw recordings are intentionally excluded from version control. Speech data can 
 
 ## Roadmap
 
-- Add reusable signal processing modules under `src/speech_pipeline/`.
-- Add noise profiling and conservative denoising.
-- Add robust VAD and segment merging.
-- Export word-level clips and label manifests.
-- Train baseline classifiers or ASR-related models on cleaned segments.
-- Add evaluation reports for segmentation quality and model performance.
+The project is organized as a layered speech pipeline:
 
+```text
+Raw recording
+-> conservative DSP cleanup
+-> QA report
+-> segmentation
+-> protocol-based labels
+-> optional neural assist
+-> ML baseline
+-> DSP-exportable classifier
+```
+
+The full roadmap is documented in `docs/roadmap.md`. A key design rule is that modern neural tools are used as optional assistants or cross-checks, not as the only source of truth.

@@ -21,3 +21,7 @@ Next planned stage:
 
 - Build conservative speech cleaning with high-pass filtering, level normalization, and before/after quality checks.
 
+Roadmap decision:
+
+- Added a formal layered roadmap from raw data governance through DSP foundations, cleaning QA, segmentation and labeling, optional neural assist, and ML baseline development.
+- Defined Level 4 neural tools as assistive rather than authoritative because neural denoising can suppress consonant bursts and fricatives that matter for `P/T/K/S/Z` classification.
