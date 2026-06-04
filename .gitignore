@@ -1,0 +1,29 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+.venv/
+venv/
+env/
+
+# Private or large audio/video data
+data/raw/
+data/processed/
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.mp4
+
+# Generated experiment outputs
+experiments/**/inspection_report.json
+experiments/**/*.csv
+experiments/**/*.json
+experiments/**/*.png
+
+# Local editor files
+.vscode/
+.idea/
+
