@@ -7,23 +7,43 @@ __pycache__/
 .venv/
 venv/
 env/
+node_modules/
 
 # Private or large audio/video data
 data/raw/
 data/processed/
+data/metadata/
+data/old_method/**
+!data/old_method/
+!data/old_method/README.md
+data/old_method/metadata/
+data/old_method/processed/
 *.wav
 *.mp3
 *.m4a
 *.flac
 *.mp4
+!hf_static_space_demo/samples/*.wav
+!hf_static_space_demo/samples/tts/
+!hf_static_space_demo/samples/tts/*.wav
+hf_static_space_demo/static_*.log
+hf_static_space_demo/static_*.err
 
 # Generated experiment outputs
+experiments/**
+!experiments/
+!experiments/README.md
+!experiments/old_method/
+!experiments/old_method/README.md
 experiments/**/inspection_report.json
 experiments/**/*.csv
 experiments/**/*.json
 experiments/**/*.png
+outputs/
+recording_manifest.csv
+tasks_to_add.jsonc
 
 # Local editor files
 .vscode/
 .idea/
-
+docs/~$*.docx

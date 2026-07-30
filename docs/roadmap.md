@@ -82,6 +82,13 @@ src/speech_pipeline/quality.py
 tools/clean_audio_baseline.py
 ```
 
+Initial implementation status:
+
+- `filters.py`: DC removal, high-pass, low-pass, band-pass, and notch filtering.
+- `normalization.py`: RMS normalization and peak protection.
+- `quality.py`: before/after audio summaries, adaptive energy thresholding, VAD-style speech ratio, segment count, and warnings.
+- `clean_audio_baseline.py`: command-line baseline cleaner with QA outputs.
+
 ## Level 3: Segmentation and Labeling
 
 Purpose: convert clean recordings into training-ready examples.
@@ -104,6 +111,11 @@ manifest_segments.csv
 manifest_words.csv
 label_review_sheet.csv
 ```
+
+Initial implementation status:
+
+- `src/speech_pipeline/segmentation.py`: converts frame-level energy decisions into padded segment metadata.
+- `tools/segment_audio_energy.py`: exports candidate segment WAVs and manifests for review.
 
 ## Level 4: Modern Neural Assist
 
@@ -151,4 +163,3 @@ confusion_matrix.png
 classification_report.json
 selected_features.json
 ```
-

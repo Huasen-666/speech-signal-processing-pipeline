@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electrolaryngeal Speech Recognition</title>
+  <style>
+    :root {
+      --blue: #1d4ed8;
+      --blue-dark: #1e3a8a;
+      --ink: #0f172a;
+      --muted: #64748b;
+      --line: #dbe3ef;
+      --good: #dcfce7;
+      --bad: #fee2e2;
+      --warn: #fef3c7;
+      --bg: #f8fafc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: #ffffff;
+    }
+    .wrap {
+      width: min(1240px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 30px 0 46px;
+    }
+    .eyebrow {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 8px 0 8px;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+    .hook {
+      max-width: 1040px;
+      color: #334155;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+    .links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .links a {
+      color: var(--blue);
+      font-weight: 850;
+      text-decoration: none;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 24px 0 18px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--bg);
+      padding: 18px;
+    }
+    .metric .num {
+      color: var(--blue-dark);
+      font-size: 30px;
+      font-weight: 950;
+      line-height: 1.1;
+    }
+    .metric .label {
+      color: #475569;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr 48px 1fr 48px 1fr;
+      align-items: center;
+      gap: 0;
+      margin: 16px 0 24px;
+    }
+    .step {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      background: #fff;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, .06);
+      min-height: 91px;
+    }
+    .step b {
+      display: block;
+      font-size: 18px;
+    }
+    .step span {
+      display: block;
+      color: var(--muted);
+      margin-top: 5px;
+    }
+    .arrow {
+      color: var(--blue);
+      font-size: 28px;
+      font-weight: 950;
+      text-align: center;
+    }
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 22px;
+      margin-bottom: 10px;
+    }
+    .section-title h2 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 650;
+    }
+    .table-scroll {
+      width: 100%;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 8px;
+      min-width: 1100px;
+    }
+    th {
+      text-align: left;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 0 10px 4px;
+    }
+    td {
+      background: #fff;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 12px 10px;
+      vertical-align: middle;
+    }
+    td:first-child {
+      border-left: 1px solid #e2e8f0;
+      border-radius: 10px 0 0 10px;
+    }
+    td:last-child {
+      border-right: 1px solid #e2e8f0;
+      border-radius: 0 10px 10px 0;
+    }
+    audio {
+      width: 145px;
+      height: 34px;
+    }
+    .truth {
+      min-width: 170px;
+      font-size: 16px;
+      font-weight: 850;
+    }
+    .result {
+      min-width: 220px;
+    }
+    .result.good { background: var(--good); }
+    .result.bad { background: var(--bad); }
+    .result.warn { background: var(--warn); }
+    .status {
+      color: #334155;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .transcript {
+      margin-top: 5px;
+      font-size: 17px;
+      font-weight: 850;
+    }
+    .wer {
+      margin-top: 6px;
+      color: #475569;
+      font-size: 13px;
+      font-weight: 850;
+    }
+    .wer-compare {
+      color: var(--blue-dark);
+      font-size: 18px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+    .wer-compare b {
+      color: var(--muted);
+      margin: 0 6px;
+    }
+    .note {
+      margin-top: 22px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--bg);
+      color: #475569;
+      line-height: 1.55;
+      font-weight: 620;
+    }
+    .missing {
+      color: #991b1b;
+      font-weight: 850;
+    }
+    @media (max-width: 820px) {
+      .metrics, .flow { grid-template-columns: 1fr; }
+      .arrow { transform: rotate(90deg); }
+      .section-title { align-items: start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section>
+      <div class="eyebrow">Personalized ASR for electrolaryngeal speech</div>
+      <h1>Electrolaryngeal Speech Recognition</h1>
+      <p class="hook">
+        Teaching machines to understand electrolaryngeal speech: off-the-shelf
+        ASR often fails, while a per-patient Whisper + LoRA adapter recovers
+        usable phrase-level text and drives natural voice playback.
+      </p>
+      <div class="links">
+        <a href="https://github.com/Huasen-666/speech-signal-processing-pipeline" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="#method">Method</a>
+        <a href="#samples">Samples</a>
+      </div>
+    </section>
+
+    <section class="metrics" aria-label="headline metrics">
+      <div class="metric">
+        <div class="num">110% -> 13%</div>
+        <div class="label">WER, off-the-shelf -> adapted</div>
+      </div>
+      <div class="metric">
+        <div class="num">90-100%</div>
+        <div class="label">Closed-set phrase accuracy</div>
+      </div>
+      <div class="metric">
+        <div class="num">CPU-ready</div>
+        <div class="label">static demo; live model kept local</div>
+      </div>
+    </section>
+
+    <section id="method" class="flow" aria-label="method flow">
+      <div class="step"><b>Electrolaryngeal speech</b><span>patient audio input</span></div>
+      <div class="arrow">-></div>
+      <div class="step"><b>Whisper + LoRA</b><span>per-patient adapter</span></div>
+      <div class="arrow">-></div>
+      <div class="step"><b>Natural voice output</b><span>ASR text + Piper TTS</span></div>
+    </section>
+
+    <section id="samples">
+      <div class="section-title">
+        <h2>Preset Sample Comparison</h2>
+        <p>Static public demo: no server, no patient-data upload.</p>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Original</th>
+              <th>Ground truth</th>
+              <th>Zero-shot Whisper</th>
+              <th>Our adapted model</th>
+              <th>Synthesized voice</th>
+              <th>WER</th>
+            </tr>
+          </thead>
+          <tbody id="sampleRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="note">
+      This public static version uses only authorized preset Dave samples and
+      precomputed outputs. The live upload pipeline remains available locally:
+      raw electrolaryngeal audio -> adapted ASR -> Ryan/Piper natural voice.
+    </section>
+  </main>
+
+  <script>
+    const rowsEl = document.getElementById("sampleRows");
+
+    function esc(value) {
+      return String(value ?? "").replace(/[&<>"']/g, (c) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[c]));
+    }
+
+    function tone(wer) {
+      if (Number(wer) === 0) return { cls: "good", icon: "OK", label: "Correct" };
+      if (Number(wer) < 50) return { cls: "warn", icon: "MID", label: "Partially correct" };
+      return { cls: "bad", icon: "BAD", label: "Wrong" };
+    }
+
+    function resultCell(text, wer) {
+      const t = tone(wer);
+      return `
+        <td class="result ${t.cls}">
+          <div class="status">${t.icon} ${t.label}</div>
+          <div class="transcript">${esc(text || "(no output)")}</div>
+          <div class="wer">WER ${Number(wer).toFixed(1)}%</div>
+        </td>`;
+    }
+
+    function audioCell(path, label) {
+      if (!path) return `<span class="missing">missing ${esc(label)}</span>`;
+      return `<audio controls preload="none" src="${esc(path)}"></audio>`;
+    }
+
+    fetch("samples/precomputed_results.json")
+      .then((response) => {
+        if (!response.ok) throw new Error(`Could not load samples: ${response.status}`);
+        return response.json();
+      })
+      .then((samples) => {
+        rowsEl.innerHTML = samples.map((item) => {
+          const zeroWer = Number(item.zeroshot_wer);
+          const oursWer = Number(item.ours_wer);
+          return `
+            <tr>
+              <td>${audioCell(item.audio, "original audio")}</td>
+              <td class="truth">${esc(item.truth)}</td>
+              ${resultCell(item.zeroshot, zeroWer)}
+              ${resultCell(item.ours, oursWer)}
+              <td>
+                <div class="status">Voice playback</div>
+                ${audioCell(item.tts_audio, "TTS audio")}
+              </td>
+              <td class="wer-compare"><span>${zeroWer.toFixed(0)}%</span><b>-></b><span>${oursWer.toFixed(0)}%</span></td>
+            </tr>`;
+        }).join("");
+      })
+      .catch((error) => {
+        rowsEl.innerHTML = `<tr><td colspan="6" class="missing">${esc(error.message)}</td></tr>`;
+      });
+  </script>
+</body>
+</html>

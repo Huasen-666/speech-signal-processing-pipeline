@@ -13,7 +13,11 @@ import numpy as np
 
 
 DEFAULT_INPUT = Path("data/raw/example.wav")
-
+'''
+把 WAV 里的原始 PCM 二进制采样数据
+转换成 Python/Numpy 里好处理的浮点 waveform
+bytes / integer samples--------------float samples in roughly [-1.0, 1.0]
+'''
 
 def pcm_to_float(raw: bytes, sample_width: int, channels: int) -> tuple[np.ndarray, np.ndarray]:
     if sample_width == 1:

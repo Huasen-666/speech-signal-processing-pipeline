@@ -1,0 +1,98 @@
+[
+  {
+    "id": "s01",
+    "clip_id": "Dave_sentence8_p0029",
+    "audio": "samples/s01_Dave_sentence8_p0029.wav",
+    "truth": "how often",
+    "zeroshot": "i love it",
+    "zeroshot_wer": 150.0,
+    "ours": "how often",
+    "ours_wer": 0.0,
+    "tts_audio": "samples/tts/s01.wav",
+    "tts_text": "how often"
+  },
+  {
+    "id": "s02",
+    "clip_id": "Dave_sentence8_p0034",
+    "audio": "samples/s02_Dave_sentence8_p0034.wav",
+    "truth": "i cannot wait to",
+    "zeroshot": "i can always do it",
+    "zeroshot_wer": 100.0,
+    "ours": "i cannot wait to",
+    "ours_wer": 0.0,
+    "tts_audio": "samples/tts/s02.wav",
+    "tts_text": "i cannot wait to"
+  },
+  {
+    "id": "s03",
+    "clip_id": "Dave_sentence8_p0008",
+    "audio": "samples/s03_Dave_sentence8_p0008.wav",
+    "truth": "compared to",
+    "zeroshot": "i'm better too",
+    "zeroshot_wer": 150.0,
+    "ours": "compared two",
+    "ours_wer": 50.0,
+    "tts_audio": "samples/tts/s03.wav",
+    "tts_text": "compared two"
+  },
+  {
+    "id": "s04",
+    "clip_id": "Dave_sentence8_p0047",
+    "audio": "samples/s04_Dave_sentence8_p0047.wav",
+    "truth": "i am looking forward to",
+    "zeroshot": "i'm even more than two",
+    "zeroshot_wer": 100.0,
+    "ours": "i'm looking forward to",
+    "ours_wer": 40.0,
+    "tts_audio": "samples/tts/s04.wav",
+    "tts_text": "i'm looking forward to"
+  },
+  {
+    "id": "s05",
+    "clip_id": "Dave_sentence8_p0041",
+    "audio": "samples/s05_Dave_sentence8_p0041.wav",
+    "truth": "i have got to",
+    "zeroshot": "i am not you",
+    "zeroshot_wer": 75.0,
+    "ours": "i have got two",
+    "ours_wer": 25.0,
+    "tts_audio": "samples/tts/s05.wav",
+    "tts_text": "i have got two"
+  },
+  {
+    "id": "s06",
+    "clip_id": "Dave_sentence8_p0059",
+    "audio": "samples/s06_Dave_sentence8_p0059.wav",
+    "truth": "it may surprise you but",
+    "zeroshot": "m a z y z u p u d",
+    "zeroshot_wer": 180.0,
+    "ours": "m a surprise you putt",
+    "ours_wer": 60.0,
+    "tts_audio": "samples/tts/s06.wav",
+    "tts_text": "m a surprise you putt"
+  },
+  {
+    "id": "s07",
+    "clip_id": "Dave_sentence8_p0066",
+    "audio": "samples/s07_Dave_sentence8_p0066.wav",
+    "truth": "now that i come to think about it",
+    "zeroshot": "now that i've been abounded",
+    "zeroshot_wer": 75.0,
+    "ours": "now that i think about it",
+    "ours_wer": 25.0,
+    "tts_audio": "samples/tts/s07.wav",
+    "tts_text": "now that i think about it"
+  },
+  {
+    "id": "s08",
+    "clip_id": "Dave_sentence8_p0075",
+    "audio": "samples/s08_Dave_sentence8_p0075.wav",
+    "truth": "the more the more",
+    "zeroshot": "some more some more",
+    "zeroshot_wer": 50.0,
+    "ours": "the more the more",
+    "ours_wer": 0.0,
+    "tts_audio": "samples/tts/s08.wav",
+    "tts_text": "the more the more"
+  }
+]
