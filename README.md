@@ -1,6 +1,6 @@
 <div align="center">
 
-# 失语者 Speech 处理 Pipeline
+# Voice-Impaired Speech Processing Pipeline
 
 Patient-adapted speech recognition for post-laryngectomy / electrolaryngeal speech.
 
