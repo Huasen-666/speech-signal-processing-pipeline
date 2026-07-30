@@ -1,6 +1,6 @@
 <div align="center">
 
-# Voice-Impaired Speech Processing Pipeline
+# Transforming Electrolaryngeal Speech into Natural Human Voice
 
 Patient-adapted speech recognition for post-laryngectomy / electrolaryngeal speech.
 

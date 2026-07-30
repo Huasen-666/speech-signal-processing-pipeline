@@ -1,5 +1,5 @@
 ---
-title: Voice-Impaired Speech Processing Pipeline
+title: Transforming Electrolaryngeal Speech into Natural Human Voice
 emoji: 🗣️
 colorFrom: blue
 colorTo: green
@@ -9,7 +9,7 @@ pinned: false
 license: mit
 ---
 
-# Voice-Impaired Speech Processing Pipeline Demo
+# Transforming Electrolaryngeal Speech into Natural Human Voice Demo
 
 Static public demo for a patient-adapted electrolaryngeal speech recognition
 pipeline. It compares cached off-the-shelf Whisper outputs against cached
