@@ -26,7 +26,7 @@ Teaching machines to understand electrolaryngeal speech, where off-the-shelf ASR
 
 ## Live Demo
 
-Public demo: [huggingface.co/spaces/wuhuasen/ultra-voice-el-asr-demo](https://huggingface.co/spaces/wuhuasen/ultra-voice-el-asr-demo)
+Public demo: [Open hosted demo](https://huggingface.co/spaces/wuhuasen/ultra-voice-el-asr-demo)
 
 The demo uses a small authorized subset of Dave's electrolaryngeal recordings. Each row compares:
 
