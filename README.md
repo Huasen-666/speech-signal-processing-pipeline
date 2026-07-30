@@ -1,17 +1,17 @@
 <div align="center">
 
-# Electrolaryngeal Speech Recognition
+# 失语者 Speech 处理 Pipeline
 
 Patient-adapted speech recognition for post-laryngectomy / electrolaryngeal speech.
 
-[![Demo](https://img.shields.io/badge/Demo-available%20on%20request-blue)](#live-demo)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Hugging%20Face-blue)](https://huggingface.co/spaces/wuhuasen/ultra-voice-el-asr-demo)
 [![Model](https://img.shields.io/badge/Model-Whisper%20%2B%20LoRA-4f46e5)](#method)
 [![TTS](https://img.shields.io/badge/Voice-Piper%20Ryan-16a34a)](#live-demo)
 [![Privacy](https://img.shields.io/badge/Privacy-raw%20audio%20excluded-gray)](#privacy)
 
 Teaching machines to understand electrolaryngeal speech, where off-the-shelf ASR often fails and patient-adapted models recover usable text.
 
-Demo link available on request.
+**[Open the live demo](https://huggingface.co/spaces/wuhuasen/ultra-voice-el-asr-demo)**
 
 </div>
 
@@ -26,7 +26,7 @@ Demo link available on request.
 
 ## Live Demo
 
-An authorized static demo is maintained separately from the public source tree.
+Public demo: [huggingface.co/spaces/wuhuasen/ultra-voice-el-asr-demo](https://huggingface.co/spaces/wuhuasen/ultra-voice-el-asr-demo)
 
 The demo uses a small authorized subset of Dave's electrolaryngeal recordings. Each row compares:
 

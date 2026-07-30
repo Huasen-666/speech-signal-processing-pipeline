@@ -1,5 +1,5 @@
 ---
-title: Electrolaryngeal Speech Recognition
+title: 失语者 Speech 处理 Pipeline
 emoji: 🗣️
 colorFrom: blue
 colorTo: green
@@ -9,7 +9,7 @@ pinned: false
 license: mit
 ---
 
-# Electrolaryngeal Speech Recognition Demo
+# 失语者 Speech 处理 Pipeline Demo
 
 Static public demo for a patient-adapted electrolaryngeal speech recognition
 pipeline. It compares cached off-the-shelf Whisper outputs against cached
