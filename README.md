@@ -1,28 +1,57 @@
 <div align="center">
 
+<img src="assets/readme_header.svg" width="840" alt="Electrolaryngeal speech to natural voice pipeline">
+
 # Transforming Electrolaryngeal Speech into Natural Human Voice
 
-Patient-adapted speech recognition for post-laryngectomy / electrolaryngeal speech.
+Patient-adapted ASR and voice-output pipeline for post-laryngectomy / electrolaryngeal speech.
+
+<p>
+  <a href="https://huggingface.co/spaces/wuhuasen/ultra-voice-el-asr-demo">Live Demo</a>
+  &nbsp;|&nbsp;
+  <a href="#method">Method</a>
+  &nbsp;|&nbsp;
+  <a href="#results-snapshot">Results</a>
+  &nbsp;|&nbsp;
+  <a href="#quick-start">Quick Start</a>
+  &nbsp;|&nbsp;
+  <a href="#privacy">Privacy</a>
+</p>
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Hugging%20Face-blue)](https://huggingface.co/spaces/wuhuasen/ultra-voice-el-asr-demo)
 [![Model](https://img.shields.io/badge/Model-Whisper%20%2B%20LoRA-4f46e5)](#method)
 [![TTS](https://img.shields.io/badge/Voice-Piper%20Ryan-16a34a)](#live-demo)
 [![Privacy](https://img.shields.io/badge/Privacy-raw%20audio%20excluded-gray)](#privacy)
 
-Teaching machines to understand electrolaryngeal speech, where off-the-shelf ASR often fails and patient-adapted models recover usable text.
+Teaching machines to understand electrolaryngeal speech, where off-the-shelf ASR often fails and patient-adapted models recover usable text for natural voice playback.
 
 **[Open the live demo](https://huggingface.co/spaces/wuhuasen/ultra-voice-el-asr-demo)**
 
 </div>
 
-## Highlights
+## What's New
 
-| Result | What It Means |
-|---|---|
-| **110% -> 25% WER** on the public demo samples | Curated authorized Dave examples comparing zero-shot Whisper with the adapted model. The demo includes honest misses, not only perfect rows. |
-| **13.7% open-set WER** on a held-out Dave phrase run | Latest local held-out evaluation from the sentence/phrase ASR track. Metrics vary by session and split. |
-| **0.0% closed-set WER / 100% sentence accuracy** on the same held-out run | Menu-style phrase selection is currently the most product-ready path. |
-| **CPU-first deployment path** | Public demo is a static Hugging Face Space; local live inference runs the adapted ASR and cached / optional Piper voice playback. |
+- 2026.07: Launched a public static demo with authorized electrolaryngeal speech samples, cached ASR outputs, and natural-voice playback.
+- 2026.07: Added a held-out phrase evaluation showing the gap between open-set ASR and closed-set phrase selection.
+- 2026.07: Started zero-shot robustness checks with newer ASR foundation models, including Qwen3-ASR.
+
+## Results Snapshot
+
+| Signal | Result | Why It Matters |
+|---|---|---|
+| 🎧 **Public demo samples** | **110% -> 25% WER** | Curated authorized Dave examples compare zero-shot Whisper with the adapted model. The demo includes honest misses, not only perfect rows. |
+| 🎯 **Held-out phrase run** | **13.7% open-set WER** | Latest local held-out evaluation from the sentence/phrase ASR track. Metrics vary by session and split. |
+| 📋 **Closed-set decoding** | **0.0% WER / 100% sentence accuracy** | Menu-style phrase selection is currently the most product-ready path. |
+| ⚡ **Deployment path** | **CPU-first demo + local live inference** | Static public demo stays free and fast; local inference runs adapted ASR plus cached / optional Piper voice playback. |
+
+## Tiny Tour
+
+| Step | Module | Output |
+|---|---|---|
+| 🎙️ **Capture** | electrolaryngeal speech recording | weak but information-bearing speech signal |
+| 🧼 **Clean** | DSP normalization, QA, segmentation | usable phrase / word / sentence clips |
+| 🧠 **Adapt** | Whisper + LoRA per-patient ASR | patient-specific transcription |
+| 🔊 **Speak** | closed-set fallback + Piper voice playback | clearer natural-sounding output |
 
 ## Live Demo
 
@@ -85,6 +114,7 @@ raw recording
 
 | Path | Purpose |
 |---|---|
+| `assets/` | Lightweight README artwork and visual assets for the public project page. |
 | `hf_static_space_demo/` | Source for the public Hugging Face static demo, including the small authorized sample subset and cached outputs. |
 | `tools/audio_auto_process.py` | Current recommended DSP preprocessing path for B/P word-list recordings. |
 | `tools/inspect_audio_signal.py` | First-pass audio inspection: duration, RMS, peak, clipping, DC offset, VAD statistics, waveform, spectrogram. |

@@ -1,0 +1,47 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Electrolaryngeal speech to natural voice pipeline</title>
+  <desc id="desc">Decorative header showing an audio waveform flowing through an adapted ASR model into natural voice output.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EFF6FF"/>
+      <stop offset="0.52" stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#ECFDF5"/>
+    </linearGradient>
+    <linearGradient id="wave" x1="110" y1="165" x2="1088" y2="165" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB"/>
+      <stop offset="0.5" stop-color="#7C3AED"/>
+      <stop offset="1" stop-color="#16A34A"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="320" rx="34" fill="url(#bg)"/>
+  <circle cx="102" cy="74" r="10" fill="#60A5FA" opacity="0.7"/>
+  <circle cx="1086" cy="77" r="12" fill="#34D399" opacity="0.65"/>
+  <circle cx="1042" cy="249" r="7" fill="#A78BFA" opacity="0.75"/>
+  <circle cx="165" cy="258" r="8" fill="#FBBF24" opacity="0.7"/>
+  <g filter="url(#softShadow)">
+    <rect x="74" y="68" width="1052" height="184" rx="30" fill="white" opacity="0.92"/>
+  </g>
+  <g stroke="url(#wave)" stroke-width="7" stroke-linecap="round">
+    <path d="M112 161H170"/>
+    <path d="M190 161C199 129 208 109 217 161C226 213 235 193 244 161C253 129 262 121 271 161C280 201 289 190 298 161"/>
+    <path d="M329 161H406"/>
+    <path d="M429 161C438 126 447 104 456 161C465 218 474 192 483 161C492 130 501 123 510 161C519 199 528 185 537 161"/>
+    <path d="M568 161H642"/>
+    <path d="M672 161C682 110 692 96 702 161C712 226 722 209 732 161C742 113 752 108 762 161C772 214 782 199 792 161"/>
+    <path d="M824 161H900"/>
+    <path d="M928 161C938 135 948 124 958 161C968 198 978 188 988 161C998 134 1008 132 1018 161C1028 190 1038 184 1048 161"/>
+    <path d="M1072 161H1088"/>
+  </g>
+  <g>
+    <rect x="118" y="106" width="150" height="34" rx="17" fill="#DBEAFE"/>
+    <text x="193" y="129" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#1D4ED8">EL speech</text>
+    <rect x="524" y="106" width="154" height="34" rx="17" fill="#EDE9FE"/>
+    <text x="601" y="129" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#6D28D9">adapted ASR</text>
+    <rect x="917" y="106" width="166" height="34" rx="17" fill="#DCFCE7"/>
+    <text x="1000" y="129" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#15803D">natural voice</text>
+  </g>
+  <text x="600" y="284" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" fill="#475569">DSP cleanup + patient-adapted ASR + closed-set fallback + voice playback</text>
+</svg>
